@@ -1,7 +1,7 @@
 import sqlite3
 import os
 
-# Optional: Delete the old database file if it was created in a broken state
+# Delete the old database file if it was created in a broken state
 if os.path.exists('factory_data.db'):
     os.remove('factory_data.db')
 
@@ -27,8 +27,8 @@ dummy_data = [
     ('MCH-02', 'assembly', 46.0, 'OK', '2026-10-05 09:00:00'),
 ]
 
-# FIX: Explicitly state which columns we are inserting into. 
-# SQLite will automatically handle the 'id' column.
+# explicitly state which columns we are inserting into. 
+
 cursor.executemany('''
     INSERT INTO assembly_logs (machine_id, process_type, torque_value, status, timestamp) 
     VALUES (?,?,?,?,?)
